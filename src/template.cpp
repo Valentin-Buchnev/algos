@@ -26,6 +26,7 @@ int main() {
     int TT;
     cin >> TT;
     while (TT--) {
+        
     }
 #ifdef LOCAL
     chrono::steady_clock::time_point timestamp_end = std::chrono::steady_clock::now();

@@ -101,17 +101,17 @@ public:
 };
 
 const mint operator +(ll a, const mint& p) {
-    return p + a;
+    return mint(a) + p;
 }
 
 const mint operator -(ll a, const mint& p) {
-    return p - a;
+    return mint(a) - p;
 }
 
 const mint operator /(ll a, const mint& p) {
-    return p / a;
+    return mint(a) / p;
 }
 
 const mint operator *(ll a, const mint& p) {
-    return p * a;
+    return mint(a) * p;
 }

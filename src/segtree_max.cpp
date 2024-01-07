@@ -1,4 +1,4 @@
-class SegTree {
+class SegTreeMax {
     public:
     struct Node {
         ll val = 0;
@@ -7,7 +7,7 @@ class SegTree {
     
     int n;
     vector<Node> t;
-    SegTree(int n) : n(n) {
+    SegTreeMax(int n) : n(n) {
         t.resize(4 * n);
     }
     
@@ -35,7 +35,7 @@ class SegTree {
         return max(left, right) + t[v].add;
     }
     
-    void add(int v, int l, int r, int ql, int qr, ll d) {
+    void update(int v, int l, int r, int ql, int qr, ll d) {
         if (qr <= l || r <= ql)
             return;
         if (ql <= l && r <= qr) {
@@ -43,8 +43,8 @@ class SegTree {
             return;
         }
         int mid = (l + r) / 2;
-        add(2 * v + 1, l, mid, ql, qr, d);
-        add(2 * v + 2, mid, r, ql, qr, d);
+        update(2 * v + 1, l, mid, ql, qr, d);
+        update(2 * v + 2, mid, r, ql, qr, d);
         t[v].val = max(t[2 * v + 1].val + t[2 * v + 1].add, t[2 * v + 2].val + t[2 * v + 2].add);
     }
 };

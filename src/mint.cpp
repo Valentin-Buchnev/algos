@@ -115,3 +115,20 @@ const mint operator /(ll a, const mint& p) {
 const mint operator *(ll a, const mint& p) {
     return mint(a) * p;
 }
+
+mint F[MAX], FR[MAX];
+
+void calcFR() {
+    F[0] = mint(1);
+    FR[0] = mint(1);
+    for (int i = 1; i < MAX; ++i) {
+        F[i] = F[i - 1] * i;
+        FR[i] = 1 / F[i];
+    }
+}
+
+mint C(int n, int k) {
+    if (k > n || n < 0)
+        return mint(0);
+    return F[n] * FR[n - k] * FR[k];
+}
